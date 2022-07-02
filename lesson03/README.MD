@@ -20,6 +20,9 @@
 |---|---|---|---|
 |1. |---|<img src = "img/thread08.png">|<img src = "img/thread09.png"> |
 |1. |---|<img src = "img/thread10.png">|<img src = "img/thread11.gif"> |
+|1. |---|<img src = "img/labirint14.png">|<img src = "img/thread11.gif"> |
+
+
 
  
 
