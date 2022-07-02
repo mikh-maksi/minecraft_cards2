@@ -1,0 +1,231 @@
+let go = 0
+let back = 0
+player.onChat("go_stop_red", function () {
+    agent.teleport(world(0, 4, 40), SOUTH)
+    agent.setItem(REDSTONE_WIRE, 1, 1)
+    go = 1
+    loops.pause(3000)
+    while (go == 1) {
+        agent.move(FORWARD, 1)
+        agent.place(DOWN)
+        if (agent.inspect(AgentInspection.Block, DOWN) == IRON_BLOCK) {
+            agent.turn(LEFT_TURN)
+        }
+        if (agent.inspect(AgentInspection.Block, DOWN) == GOLD_BLOCK) {
+            agent.turn(RIGHT_TURN)
+        }
+        if (agent.inspect(AgentInspection.Block, DOWN) == REDSTONE_BLOCK) {
+            go = 0
+            agent.turn(LEFT_TURN)
+            agent.turn(LEFT_TURN)
+        }
+    }
+})
+player.onChat("out", function () {
+    agent.teleport(world(0, 4, 0), WEST)
+})
+player.onChat("go_zigzag", function () {
+    agent.teleport(world(0, 4, 40), SOUTH)
+    for (let index = 0; index < 60; index++) {
+        agent.move(FORWARD, 1)
+        if (agent.inspect(AgentInspection.Block, DOWN) == IRON_BLOCK) {
+            agent.turn(LEFT_TURN)
+        }
+        if (agent.inspect(AgentInspection.Block, DOWN) == GOLD_BLOCK) {
+            agent.turn(RIGHT_TURN)
+        }
+    }
+})
+player.onChat("clear", function () {
+    blocks.fill(
+    GRASS,
+    world(0, 3, 40),
+    world(30, 3, 65),
+    FillOperation.Replace
+    )
+    blocks.fill(
+    GRASS,
+    world(0, 4, 40),
+    world(60, 4, 65),
+    FillOperation.Replace
+    )
+    blocks.fill(
+    AIR,
+    world(0, 4, 40),
+    world(60, 4, 65),
+    FillOperation.Replace
+    )
+})
+player.onChat("line", function () {
+    blocks.fill(
+    GRASS,
+    world(0, 3, 20),
+    world(0, 3, 30),
+    FillOperation.Replace
+    )
+    blocks.place(IRON_BLOCK, world(0, 3, 30))
+    blocks.fill(
+    GRASS,
+    world(1, 3, 30),
+    world(10, 3, 30),
+    FillOperation.Replace
+    )
+    blocks.place(IRON_BLOCK, world(10, 3, 30))
+    blocks.fill(
+    GRASS,
+    world(10, 3, 29),
+    world(10, 3, 20),
+    FillOperation.Replace
+    )
+    blocks.place(IRON_BLOCK, world(10, 3, 20))
+    blocks.fill(
+    GRASS,
+    world(9, 3, 20),
+    world(0, 3, 20),
+    FillOperation.Replace
+    )
+    blocks.place(IRON_BLOCK, world(0, 3, 20))
+})
+player.onChat("red_back", function () {
+    loops.pause(3000)
+    for (let index = 0; index < 100; index++) {
+        if (agent.inspect(AgentInspection.Block, FORWARD) == REDSTONE_WIRE) {
+            agent.move(FORWARD, 1)
+        }
+        if (agent.inspect(AgentInspection.Block, LEFT) == REDSTONE_WIRE) {
+            agent.turn(LEFT_TURN)
+            agent.move(FORWARD, 1)
+        }
+        if (agent.inspect(AgentInspection.Block, RIGHT) == REDSTONE_WIRE) {
+            agent.turn(RIGHT_TURN)
+            agent.move(FORWARD, 1)
+        }
+    }
+})
+player.onChat("zigzag_stop", function () {
+    blocks.place(EMERALD_BLOCK, world(0, 3, 40))
+    blocks.place(IRON_BLOCK, world(0, 3, 50))
+    blocks.place(GOLD_BLOCK, world(10, 3, 50))
+    blocks.place(GOLD_BLOCK, world(10, 3, 60))
+    blocks.place(REDSTONE_BLOCK, world(0, 3, 60))
+})
+player.onChat("go_stop_red_l", function () {
+    agent.teleport(world(-7, 4, -9), SOUTH)
+    agent.setItem(REDSTONE_WIRE, 1, 1)
+    go = 1
+    loops.pause(3000)
+    while (go == 1) {
+        agent.move(FORWARD, 1)
+        agent.place(DOWN)
+        if (agent.inspect(AgentInspection.Block, DOWN) == IRON_BLOCK) {
+            agent.turn(LEFT_TURN)
+        }
+        if (agent.inspect(AgentInspection.Block, DOWN) == GOLD_BLOCK) {
+            agent.turn(RIGHT_TURN)
+        }
+        if (agent.inspect(AgentInspection.Block, DOWN) == REDSTONE_BLOCK) {
+            go = 0
+            agent.turn(LEFT_TURN)
+            agent.turn(LEFT_TURN)
+        }
+    }
+})
+player.onChat("zi", function () {
+    blocks.fill(
+    GRASS,
+    world(0, 3, 40),
+    world(0, 3, 50),
+    FillOperation.Hollow
+    )
+    blocks.fill(
+    GRASS,
+    world(0, 3, 50),
+    world(10, 3, 50),
+    FillOperation.Replace
+    )
+    blocks.fill(
+    GRASS,
+    world(10, 3, 50),
+    world(10, 3, 60),
+    FillOperation.Replace
+    )
+    blocks.fill(
+    GRASS,
+    world(10, 3, 60),
+    world(0, 3, 60),
+    FillOperation.Replace
+    )
+    blocks.place(IRON_BLOCK, world(0, 3, 50))
+    blocks.place(GOLD_BLOCK, world(10, 3, 50))
+    blocks.place(GOLD_BLOCK, world(10, 3, 60))
+})
+player.onChat("zigzag", function () {
+    blocks.place(IRON_BLOCK, world(0, 3, 40))
+    blocks.place(IRON_BLOCK, world(0, 3, 50))
+    blocks.place(GOLD_BLOCK, world(10, 3, 50))
+    blocks.place(GOLD_BLOCK, world(10, 3, 60))
+})
+player.onChat("go_l", function () {
+    agent.teleport(world(0, 4, 20), SOUTH)
+    loops.pause(3000)
+    for (let index = 0; index < 60; index++) {
+        agent.move(FORWARD, 1)
+        if (agent.inspect(AgentInspection.Block, DOWN) == IRON_BLOCK) {
+            agent.turn(LEFT_TURN)
+        }
+    }
+})
+player.onChat("l", function () {
+    blocks.place(IRON_BLOCK, world(0, 3, 20))
+    blocks.place(IRON_BLOCK, world(0, 3, 30))
+    blocks.place(IRON_BLOCK, world(10, 3, 30))
+    blocks.place(IRON_BLOCK, world(10, 3, 20))
+})
+player.onChat("go_back", function () {
+    agent.teleport(world(0, 4, 40), SOUTH)
+    agent.setItem(REDSTONE_WIRE, 1, 1)
+    go = 1
+    back = 0
+    while (go == 1) {
+        agent.move(FORWARD, 1)
+        agent.place(DOWN)
+        if (agent.inspect(AgentInspection.Block, DOWN) == IRON_BLOCK) {
+            if (back == 0) {
+                agent.turn(LEFT_TURN)
+            } else {
+                agent.turn(RIGHT_TURN)
+            }
+        }
+        if (agent.inspect(AgentInspection.Block, DOWN) == GOLD_BLOCK) {
+            if (back == 0) {
+                agent.turn(RIGHT_TURN)
+            } else {
+                agent.turn(LEFT_TURN)
+            }
+        }
+        if (agent.inspect(AgentInspection.Block, DOWN) == DIAMOND_BLOCK) {
+            agent.turn(RIGHT_TURN)
+            agent.turn(RIGHT_TURN)
+            back += 1
+        }
+        if (agent.inspect(AgentInspection.Block, DOWN) == REDSTONE_BLOCK) {
+            go = 0
+        }
+    }
+})
+player.onChat("red", function () {
+    agent.teleport(world(20, 4, 40), SOUTH)
+    for (let index = 0; index < 100; index++) {
+        if (agent.inspect(AgentInspection.Block, FORWARD) == REDSTONE_WIRE) {
+            agent.move(FORWARD, 1)
+        }
+        if (agent.inspect(AgentInspection.Block, LEFT) == REDSTONE_WIRE) {
+            agent.turn(LEFT_TURN)
+            agent.move(FORWARD, 1)
+        }
+        if (agent.inspect(AgentInspection.Block, RIGHT) == REDSTONE_WIRE) {
+            agent.turn(RIGHT_TURN)
+            agent.move(FORWARD, 1)
+        }
+    }
+})

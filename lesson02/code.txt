@@ -1,0 +1,239 @@
+let n = 0
+let mat = 0
+player.onChat("labirint2", function () {
+    blocks.fill(
+    PLANKS_OAK,
+    world(2, 4, 2),
+    world(2, 5, -2),
+    FillOperation.Replace
+    )
+    blocks.fill(
+    PLANKS_OAK,
+    world(2, 4, -2),
+    world(-2, 5, -2),
+    FillOperation.Replace
+    )
+    blocks.fill(
+    PLANKS_OAK,
+    world(-2, 4, -2),
+    world(-2, 5, 2),
+    FillOperation.Replace
+    )
+    blocks.fill(
+    PLANKS_OAK,
+    world(-2, 4, 2),
+    world(2, 5, 2),
+    FillOperation.Replace
+    )
+})
+player.onChat("clear", function () {
+    blocks.fill(
+    AIR,
+    world(10, 4, 10),
+    world(-10, 5, -10),
+    FillOperation.Replace
+    )
+    blocks.fill(
+    GRASS,
+    world(10, 3, 10),
+    world(-10, 3, -10),
+    FillOperation.Replace
+    )
+})
+player.onChat("space4", function () {
+    blocks.place(AIR, world(4, 4, 2))
+    blocks.place(AIR, world(4, 5, 2))
+})
+player.onItemInteracted(GOLDEN_SHOVEL, function () {
+    agent.turn(LEFT_TURN)
+})
+player.onChat("pointer", function () {
+    blocks.place(IRON_BLOCK, world(-7, 3, -7))
+    blocks.place(GOLD_BLOCK, world(7, 3, -7))
+    blocks.place(GOLD_BLOCK, world(7, 3, 5))
+    blocks.place(GOLD_BLOCK, world(-5, 3, 5))
+    blocks.place(GOLD_BLOCK, world(5, 3, -5))
+    blocks.place(GOLD_BLOCK, world(-5, 3, -5))
+    blocks.place(GOLD_BLOCK, world(5, 3, 2))
+    blocks.place(GOLD_BLOCK, world(3, 3, 2))
+    blocks.place(IRON_BLOCK, world(3, 3, 0))
+    blocks.place(REDSTONE_BLOCK, world(1, 3, 0))
+})
+player.onChat("clear_pointer", function () {
+    blocks.fill(
+    GRASS,
+    world(20, 3, 20),
+    world(-20, 3, -20),
+    FillOperation.Replace
+    )
+})
+player.onChat("labirint6", function () {
+    blocks.fill(
+    PLANKS_OAK,
+    world(6, 4, 6),
+    world(6, 5, -6),
+    FillOperation.Replace
+    )
+    blocks.fill(
+    PLANKS_OAK,
+    world(6, 4, -6),
+    world(-6, 5, -6),
+    FillOperation.Replace
+    )
+    blocks.fill(
+    PLANKS_OAK,
+    world(-6, 4, -6),
+    world(-6, 5, 6),
+    FillOperation.Replace
+    )
+    blocks.fill(
+    PLANKS_OAK,
+    world(-6, 4, 6),
+    world(6, 5, 6),
+    FillOperation.Replace
+    )
+})
+player.onItemInteracted(IRON_SHOVEL, function () {
+    agent.move(FORWARD, 1)
+})
+player.onChat("labirint_c", function () {
+    for (let індекс = 0; індекс <= 4; індекс++) {
+        n = 2 * (індекс + 1)
+        blocks.fill(
+        PLANKS_OAK,
+        world(n, 4, n),
+        world(n, 5, 0 - n),
+        FillOperation.Replace
+        )
+        blocks.fill(
+        PLANKS_OAK,
+        world(n, 4, 0 - n),
+        world(0 - n, 5, 0 - n),
+        FillOperation.Replace
+        )
+        blocks.fill(
+        PLANKS_OAK,
+        world(0 - n, 4, 0 - n),
+        world(0 - n, 5, n),
+        FillOperation.Replace
+        )
+        blocks.fill(
+        PLANKS_OAK,
+        world(0 - n, 4, n),
+        world(n, 5, n),
+        FillOperation.Replace
+        )
+    }
+})
+player.onChat("space8", function () {
+    blocks.place(AIR, world(-7, 4, -8))
+    blocks.place(AIR, world(-7, 5, -8))
+})
+player.onChat("space0", function () {
+    blocks.place(AIR, world(2, 4, 0))
+    blocks.place(AIR, world(2, 5, 0))
+})
+player.onItemInteracted(DIAMOND_SHOVEL, function () {
+    agent.turn(RIGHT_TURN)
+})
+player.onChat("labirint_c2", function () {
+    mat = PLANKS_OAK
+    for (let індекс2 = 0; індекс2 <= 3; індекс2++) {
+        n = 2 * (індекс2 + 1)
+        blocks.fill(
+        mat,
+        world(n, 4, n),
+        world(n, 5, 0 - n),
+        FillOperation.Replace
+        )
+        blocks.fill(
+        mat,
+        world(n, 4, 0 - n),
+        world(0 - n, 5, 0 - n),
+        FillOperation.Replace
+        )
+        blocks.fill(
+        mat,
+        world(0 - n, 4, 0 - n),
+        world(0 - n, 5, n),
+        FillOperation.Replace
+        )
+        blocks.fill(
+        mat,
+        world(0 - n, 4, n),
+        world(n, 5, n),
+        FillOperation.Replace
+        )
+    }
+})
+player.onChat("labirint4", function () {
+    blocks.fill(
+    PLANKS_OAK,
+    world(4, 4, 4),
+    world(4, 5, -4),
+    FillOperation.Replace
+    )
+    blocks.fill(
+    PLANKS_OAK,
+    world(4, 4, -4),
+    world(-4, 5, -4),
+    FillOperation.Replace
+    )
+    blocks.fill(
+    PLANKS_OAK,
+    world(-4, 4, -4),
+    world(-4, 5, 4),
+    FillOperation.Replace
+    )
+    blocks.fill(
+    PLANKS_OAK,
+    world(-4, 4, 4),
+    world(4, 5, 4),
+    FillOperation.Replace
+    )
+})
+player.onChat("overlap2", function () {
+    blocks.place(PLANKS_OAK, world(0, 4, 3))
+    blocks.place(PLANKS_OAK, world(0, 5, 3))
+})
+player.onChat("overlap4", function () {
+    blocks.place(PLANKS_OAK, world(0, 4, 3))
+    blocks.place(PLANKS_OAK, world(0, 5, 3))
+})
+player.onChat("space6", function () {
+    blocks.place(AIR, world(6, 4, 5))
+    blocks.place(AIR, world(6, 5, 5))
+})
+player.onChat("start", function () {
+    agent.teleport(world(-7, 4, -9), SOUTH)
+    blocks.place(SANDSTONE, world(0, 4, 0))
+})
+player.onChat("overlap6", function () {
+    blocks.place(PLANKS_OAK, world(5, 4, 3))
+    blocks.place(PLANKS_OAK, world(5, 5, 3))
+})
+player.onChat("space2", function () {
+    blocks.place(AIR, world(-2, 4, -1))
+    blocks.place(AIR, world(-2, 5, -1))
+})
+player.onItemInteracted(STONE_SHOVEL, function () {
+    agent.destroy(FORWARD)
+})
+player.onChat("overlap8", function () {
+    blocks.place(PLANKS_OAK, world(-1, 4, 7))
+    blocks.place(PLANKS_OAK, world(-1, 5, 7))
+})
+player.onChat("all", function () {
+    player.runChatCommand("labirint_c2")
+    player.runChatCommand("overlap2")
+    player.runChatCommand("overlap4")
+    player.runChatCommand("overlap6")
+    player.runChatCommand("overlap8")
+    loops.pause(100)
+    player.runChatCommand("space4")
+    player.runChatCommand("space6")
+    player.runChatCommand("space8")
+    player.runChatCommand("space2")
+    player.runChatCommand("space0")
+    player.runChatCommand("space8")
+})
