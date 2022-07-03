@@ -43,4 +43,17 @@
 |5.|5. Реалізуйте прохід агента із залишанням за собою пилу редстоуну.|<img src = "img/labirint06.png">  |<img src = "img/labirint12.gif">  |
 |6.|6. Реалізуйте прохід агента із залишанням за собою пилу редстоуну.|<img src = "img/labirint14.png">  |<img src = "img/labirint13.gif">  |
 
-<img src = "img/labirint14.png  
+
+<img src = "img/labirint14.png">  
+<img src = "img/labirint15.gif">  
+<img src = "img/labirint16.gif">  
+<img src = "img/labirint17.png">  
+<img src = "img/labirint18.png">  
+<img src = "img/labirint19.png">  
+<img src = "img/labirint20.png">  
+<img src = "img/labirint21.png">  
+<img src = "img/labirint22.png">  
+<img src = "img/labirint23.gif">  
+<img src = "img/labirint24.png">  
+<img src = "img/labirint25.png">  
+<img src = "img/labirint26.gif">  
