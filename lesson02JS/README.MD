@@ -8,9 +8,36 @@
 Перший функціонал, який ми надамо для нашого агента, це  навчити повертати вліво, якщо агент проходить над срібним блоком.  
 <img src = "img/labirint2_02.png" width = 500>
 
+
+**Код №1**
+```js
+player.onChat("go_l", function () {
+    agent.teleport(world(0, 4, 20), SOUTH)
+    loops.pause(3000)
+    for (let index = 0; index < 60; index++) {
+        agent.move(FORWARD, 1)
+        if (agent.inspect(AgentInspection.Block, DOWN) == IRON_BLOCK) {
+            agent.turn(LEFT_TURN)
+        }
+    }
+})
+```
+**Код №2**
+```js
+player.onChat("l", function () {
+    blocks.place(IRON_BLOCK, world(0, 3, 20))
+    blocks.place(IRON_BLOCK, world(0, 3, 30))
+    blocks.place(IRON_BLOCK, world(10, 3, 30))
+    blocks.place(IRON_BLOCK, world(10, 3, 20))
+})
+```
+
 #|Завдання|Код|Результат|
 |---|---|---|---|
-|1|1. Запустить рух по квдрату 10*10, починаючи з точки(0;4;20), обличчям на південь, за допомогою срібних блоків запустить рух агента по точках (0;4;20),(0;4;30),(10;4;30),(10;4;20) Розставьте срібні блоки (0;3;0) до точки (1;3;30)<br> 2. Запустить рух по квадрату 5 * 5 починаючи з точки(0;4;40), обличчям на південь, за допомогою срібних блоків запустить рух агента по точках (0;4;40),(0;4;45),(5;4;45),(5;4;40)<br>3. Запустить рух по квадрату 7 * 7 починаючи з точки (0;4;50), обличчям на південь, за допомогою срібних блоків запустить рух агента по точках (0;4;50),(0;4;57),(7;4;57),(7;4;50)|<img src = "img/labirint2_01.png">  <img src = "img/labirint2_02.png">  |<img src = "img/labirint2_03.png">  <img src = "img/labirint2_04.gif">|  
+|1|1. Запустить рух по квдрату 10*10, починаючи з точки(0;4;20), обличчям на південь, за допомогою срібних блоків запустить рух агента по точках (0;4;20),(0;4;30),(10;4;30),(10;4;20) Розставьте срібні блоки (0;3;0) до точки (1;3;30)<br> 2. Запустить рух по квадрату 5 * 5 починаючи з точки(0;4;40), обличчям на південь, за допомогою срібних блоків запустить рух агента по точках (0;4;40),(0;4;45),(5;4;45),(5;4;40)<br>3. Запустить рух по квадрату 7 * 7 починаючи з точки (0;4;50), обличчям на південь, за допомогою срібних блоків запустить рух агента по точках (0;4;50),(0;4;57),(7;4;57),(7;4;50)|**Код №2** <br>  **Код №1**  |<img src = "img/labirint2_03.png">  <img src = "img/labirint2_04.gif">|  
+
+
+
 
 **Додаткові задачі:**
 1. Зробіть прямокутник 10*5 з точки (0;4;60) обличчям на південь.
@@ -23,9 +50,37 @@
 
 <img src = "img/labirint2_05.png" width = 500>
 
+**Код №4**
+```js
+player.onChat("go_zigzag", function () {
+    agent.teleport(world(0, 4, 40), SOUTH)
+    for (let index = 0; index < 60; index++) {
+        agent.move(FORWARD, 1)
+        if (agent.inspect(AgentInspection.Block, DOWN) == IRON_BLOCK) {
+            agent.turn(LEFT_TURN)
+        }
+        if (agent.inspect(AgentInspection.Block, DOWN) == GOLD_BLOCK) {
+            agent.turn(RIGHT_TURN)
+        }
+    }
+})
+
+```
+**Код №3**
+```js
+player.onChat("zigzag", function () {
+    blocks.place(IRON_BLOCK, world(0, 3, 40))
+    blocks.place(IRON_BLOCK, world(0, 3, 50))
+    blocks.place(GOLD_BLOCK, world(10, 3, 50))
+    blocks.place(GOLD_BLOCK, world(10, 3, 60))
+})
+```
+
+
+
 #|Завдання|Код|Результат|
 |---|---|---|---|
-|2| 1. Запустіть зигзаг із кроком 10 блоків, починаючи із точки (0;4;40) за схемою вперед-вліво-вперед-вправо-вперед-вправо-вперед через точки (0;4;40), (0;4;50), (10;4;50), (0;4;60). <br> 2. Запустіть зигзаг із кроком 5 блоків, починаючи із точки (0;4;80) за схемою вперед-вліво-вперед-вправо-вперед-вправо-вперед через точки (0;4;80), (0;4;85), (5;4;85), (0;4;85). <br> 3. Запустіть зигзаг із кроком 7 блоків, починаючи із точки (0;4;90) за схемою вперед-вліво-вперед-вправо-вперед-вправо-вперед через точки (0;4;90), (0;4;97), (7;4;97), (0;4;97).| <img src = "img/labirint2_06.png">  <img src = "img/labirint2_05.png">|<img src = "img/labirint2_07.png"> <br><img src = "img/labirint2_08.gif"> |
+|2| 1. Запустіть зигзаг із кроком 10 блоків, починаючи із точки (0;4;40) за схемою вперед-вліво-вперед-вправо-вперед-вправо-вперед через точки (0;4;40), (0;4;50), (10;4;50), (0;4;60). <br> 2. Запустіть зигзаг із кроком 5 блоків, починаючи із точки (0;4;80) за схемою вперед-вліво-вперед-вправо-вперед-вправо-вперед через точки (0;4;80), (0;4;85), (5;4;85), (0;4;85). <br> 3. Запустіть зигзаг із кроком 7 блоків, починаючи із точки (0;4;90) за схемою вперед-вліво-вперед-вправо-вперед-вправо-вперед через точки (0;4;90), (0;4;97), (7;4;97), (0;4;97).| **Код №3**  **Код №4**|<img src = "img/labirint2_07.png"> <br><img src = "img/labirint2_08.gif"> |
 
 **Додаткові задачі:**
 1. Зробіть зигзаг із 3-х блоків з точки (0;4;100) обличчям на південь.
@@ -40,27 +95,90 @@
 Для того, шоб можна було зупинити агента в певній точці необхідно мати можливість зупинити виконання циклу.  
 Для цього ми використаємо цикл, що виконується до тих пір, поки певна умова має значення "істина".
 
-<img src = "img/labirint2_09.png" width = "600">  
-<img src = "img/labirint2_10.png" width = "600">  
-<img src = "img/labirint2_11.png" width = "600">  
-<img src = "img/labirint2_12.png" width = "600">  
-<img src = "img/labirint2_13.png" width = "600">  
+ 
 
 
 
 <img src = "img/labirint2_15.png" width = "600"> 
 
+**Код №5**
+```js
+player.onChat("go_stop", function () {
+    agent.teleport(world(0, 4, 40), SOUTH)
+    go = 1
+    while (go == 1) {
+        agent.move(FORWARD, 1)
+        if (agent.inspect(AgentInspection.Block, DOWN) == IRON_BLOCK) {
+            agent.turn(LEFT_TURN)
+        }
+        if (agent.inspect(AgentInspection.Block, DOWN) == GOLD_BLOCK) {
+            agent.turn(RIGHT_TURN)
+        }
+        if (agent.inspect(AgentInspection.Block, DOWN) == REDSTONE_BLOCK) {
+            go = 0
+        }
+    }
+})
+
+```
+
+**Код №6**
+
+```js
+player.onChat("zigzag_stop", function () {
+    blocks.place(EMERALD_BLOCK, world(0, 3, 40))
+    blocks.place(IRON_BLOCK, world(0, 3, 50))
+    blocks.place(GOLD_BLOCK, world(10, 3, 50))
+    blocks.place(GOLD_BLOCK, world(10, 3, 60))
+    blocks.place(REDSTONE_BLOCK, world(0, 3, 60))
+})
+```
 
 
 #|Завдання|Код|Результат|
 |---|---|---|---|
-|3|1. Запустіть зигзаг із кроком 10 блоків, починаючи із точки (0;4;40) за схемою вперед-вліво-вперед-вправо-вперед-вправо-вперед через точки (0;4;40), (0;4;50), (10;4;50), (0;4;60). Із зупинкою в точці (0;4;60).<br>2. Запустіть зигзаг із кроком 5 блоків, починаючи із точки (0;4;80) за схемою вперед-вліво-вперед-вправо-вперед-вправо-вперед через точки (0;4;80), (0;4;85), (5;4;85), (0;4;85). Із зупинкою в точці (0;4;85).<br>3. Запустіть зигзаг із кроком 7 блоків, починаючи із точки (0;4;90) за схемою вперед-вліво-вперед-вправо-вперед-вправо-вперед через точки (0;4;90), (0;4;97), (7;4;97), (0;4;97). Із зупинкою в точці (0;4;97).|<img src = "img/labirint2_14.png"><br><img src = "img/labirint2_15.png"> |<img src = "img/labirint2_17.png" width = "600"> <br> <img src = "img/labirint2_16.gif">  |
+|3|1. Запустіть зигзаг із кроком 10 блоків, починаючи із точки (0;4;40) за схемою вперед-вліво-вперед-вправо-вперед-вправо-вперед через точки (0;4;40), (0;4;50), (10;4;50), (0;4;60). Із зупинкою в точці (0;4;60).<br>2. Запустіть зигзаг із кроком 5 блоків, починаючи із точки (0;4;80) за схемою вперед-вліво-вперед-вправо-вперед-вправо-вперед через точки (0;4;80), (0;4;85), (5;4;85), (0;4;85). Із зупинкою в точці (0;4;85).<br>3. Запустіть зигзаг із кроком 7 блоків, починаючи із точки (0;4;90) за схемою вперед-вліво-вперед-вправо-вперед-вправо-вперед через точки (0;4;90), (0;4;97), (7;4;97), (0;4;97). Із зупинкою в точці (0;4;97).|**Код №5**<br>**Код №6** |<img src = "img/labirint2_17.png" width = "600"> <br> <img src = "img/labirint2_16.gif">  |
 ### Розстановка редстоуну
 Додамо функцію для агенту, щоб при кожному кроці він ставив знизу себе пил редстоуну.
   
-<img src = "img/labirint2_18.png" width = "600">    
-   
+<img src = "img/labirint2_18.png" width = "600">   
+
+```js
+player.onChat("zigzag_stop", function () {
+    blocks.place(EMERALD_BLOCK, world(0, 3, 40))
+    blocks.place(IRON_BLOCK, world(0, 3, 50))
+    blocks.place(GOLD_BLOCK, world(10, 3, 50))
+    blocks.place(GOLD_BLOCK, world(10, 3, 60))
+    blocks.place(REDSTONE_BLOCK, world(0, 3, 60))
+})
+```
+
+
 <img src = "img/labirint2_19.png" width = "600">      
+
+```js
+player.onChat("go_stop_red", function () {
+    agent.teleport(world(0, 4, 40), SOUTH)
+    agent.setItem(REDSTONE_WIRE, 1, 1)
+    go = 1
+    loops.pause(3000)
+    while (go == 1) {
+        agent.move(FORWARD, 1)
+        agent.place(DOWN)
+        if (agent.inspect(AgentInspection.Block, DOWN) == IRON_BLOCK) {
+            agent.turn(LEFT_TURN)
+        }
+        if (agent.inspect(AgentInspection.Block, DOWN) == GOLD_BLOCK) {
+            agent.turn(RIGHT_TURN)
+        }
+        if (agent.inspect(AgentInspection.Block, DOWN) == REDSTONE_BLOCK) {
+            go = 0
+            agent.turn(LEFT_TURN)
+            agent.turn(LEFT_TURN)
+        }
+    }
+})
+```
 
 &nbsp;    
      
@@ -75,6 +193,44 @@
 <img src = "img/labirint2_20.png" width = "600">  
 
 <img src = "img/labirint2_21.png" width = "520">    
+
+```js
+player.onChat("go_back", function () {
+    agent.teleport(world(0, 4, 40), SOUTH)
+    agent.setItem(REDSTONE_WIRE, 1, 1)
+    go = 1
+    back = 0
+    while (go == 1) {
+        agent.move(FORWARD, 1)
+        agent.place(DOWN)
+        if (agent.inspect(AgentInspection.Block, DOWN) == IRON_BLOCK) {
+            if (back == 0) {
+                agent.turn(LEFT_TURN)
+            } else {
+                agent.turn(RIGHT_TURN)
+            }
+        }
+        if (agent.inspect(AgentInspection.Block, DOWN) == GOLD_BLOCK) {
+            if (back == 0) {
+                agent.turn(RIGHT_TURN)
+            } else {
+                agent.turn(LEFT_TURN)
+            }
+        }
+        if (agent.inspect(AgentInspection.Block, DOWN) == DIAMOND_BLOCK) {
+            agent.turn(RIGHT_TURN)
+            agent.turn(RIGHT_TURN)
+            back += 1
+        }
+        if (agent.inspect(AgentInspection.Block, DOWN) == REDSTONE_BLOCK) {
+            go = 0
+        }
+    }
+})
+
+
+```
+
 
 &nbsp;  
   
