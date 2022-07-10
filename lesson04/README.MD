@@ -74,3 +74,21 @@
 Подивимось на результат  
 <img src = "img/piston17.gif" width = "300">
 
+
+## Використання часу
+<img src = "img/piston15.png" width = "300">     
+  
+<img src = "img/piston18.png" width = "300">   
+  
+<img src = "img/piston19.gif" width = "300">   
+
+## Лабіринт
+Поновимо лабіринт з попереднього заняття.  
+<img src = "img/labirint10.png"> 
+<img src = "img/labirint08.png">  
+<img src = "img/labirint09.png">  
+ 
+<img src = "img/labirint11.png">  
+<img src = "img/labirint12.png">  
+<img src = "img/labirint13.gif">  
+

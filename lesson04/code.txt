@@ -1,0 +1,116 @@
+player.onChat("start4", function () {
+    player.teleport(world(-7, 4, -10))
+    blocks.place(DIAMOND_BLOCK, world(-7, 4, -9))
+    blocks.place(EMERALD_BLOCK, world(-1, 4, 0))
+    flag3 = 1
+    flag4 = 1
+    player.say("Initialisation")
+})
+
+loops.forever(function () {
+    if (!(blocks.testForBlock(DIAMOND_BLOCK, world(-7, 4, -9))) && flag3 == 1) {
+        flag3 = 0
+        player.say("Start")
+        timestart = gameplay.timeQuery(GAME_TIME)
+    }
+    if (!(blocks.testForBlock(EMERALD_BLOCK, world(-1, 4, 0))) && flag4 == 1) {
+        flag4 = 0
+        player.say(gameplay.timeQuery(GAME_TIME) - timestart)
+    }
+})
+
+player.onChat("go_labirint", function () {
+    agent.teleport(world(-7, 4, -9), SOUTH)
+    agent.setItem(REDSTONE_WIRE, 1, 1)
+    go = 1
+    loops.pause(100)
+    while (go == 1) {
+        agent.move(FORWARD, 1)
+        agent.place(DOWN)
+        if (agent.inspect(AgentInspection.Block, DOWN) == IRON_BLOCK) {
+            agent.turn(LEFT_TURN)
+        }
+        if (agent.inspect(AgentInspection.Block, DOWN) == GOLD_BLOCK) {
+            agent.turn(RIGHT_TURN)
+        }
+        if (agent.inspect(AgentInspection.Block, DOWN) == REDSTONE_BLOCK) {
+            go = 0
+            agent.turn(LEFT_TURN)
+            agent.turn(LEFT_TURN)
+        }
+    }
+})
+
+
+player.onChat("labirint", function () {
+    mat = GRASS
+    for (let індекс2 = 0; індекс2 <= 3; індекс2++) {
+        n = 2 * (індекс2 + 1)
+        blocks.fill(
+        mat,
+        world(n, 4, n),
+        world(n, 4, 0 - n),
+        FillOperation.Replace
+        )
+        blocks.fill(
+        mat,
+        world(n, 4, 0 - n),
+        world(0 - n, 4, 0 - n),
+        FillOperation.Replace
+        )
+        blocks.fill(
+        mat,
+        world(0 - n, 4, 0 - n),
+        world(0 - n, 4, n),
+        FillOperation.Replace
+        )
+        blocks.fill(
+        mat,
+        world(0 - n, 4, n),
+        world(n, 4, n),
+        FillOperation.Replace
+        )
+    }
+})
+
+player.onChat("pointer", function () {
+    blocks.place(IRON_BLOCK, world(-7, 3, -7))
+    blocks.place(GOLD_BLOCK, world(7, 3, -7))
+    blocks.place(GOLD_BLOCK, world(7, 3, 5))
+    blocks.place(GOLD_BLOCK, world(-5, 3, 5))
+    blocks.place(GOLD_BLOCK, world(5, 3, -5))
+    blocks.place(GOLD_BLOCK, world(-5, 3, -5))
+    blocks.place(GOLD_BLOCK, world(5, 3, 2))
+    blocks.place(GOLD_BLOCK, world(3, 3, 2))
+    blocks.place(IRON_BLOCK, world(3, 3, 0))
+    blocks.place(REDSTONE_BLOCK, world(0, 3, 0))
+})
+
+
+player.onChat("clear2", function () {
+    blocks.fill(
+    AIR,
+    world(10, 4, 10),
+    world(-10, 5, -10),
+    FillOperation.Replace
+    )
+    blocks.fill(
+    GRASS,
+    world(10, 3, 10),
+    world(-10, 3, -10),
+    FillOperation.Replace
+    )
+})
+
+player.onChat("overlap", function () {
+    blocks.place(PLANKS_OAK, world(0, 4, 3))
+    blocks.place(PLANKS_OAK, world(5, 4, 3))
+    blocks.place(PLANKS_OAK, world(-1, 4, 7))
+})
+
+player.onChat("space", function () {
+    blocks.place(AIR, world(2, 4, 0))
+    blocks.place(AIR, world(4, 4, 2))
+    blocks.place(AIR, world(6, 4, 5))
+    blocks.place(AIR, world(-7, 4, -8))
+})
