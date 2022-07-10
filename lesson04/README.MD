@@ -87,7 +87,9 @@
 <img src = "img/labirint10.png"> 
 <img src = "img/labirint08.png">  
 <img src = "img/labirint09.png">  
- 
+<img src = "img/labirint14.png">  
+<img src = "img/labirint15.png">  
+
 <img src = "img/labirint11.png">  
 <img src = "img/labirint12.png">  
 <img src = "img/labirint13.gif">  
